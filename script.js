@@ -37,6 +37,7 @@ window.onload = () => {
   for(var i = 0; i < 45; i++) { 
     let div = document.createElement('div');
       if(i % 2 === 0) {
+        // refactor to function to prevent repetitive code
         oddStartColor = {r: Math.round(Math.min(oddStartColor.r * 1.06, 255)), g: Math.round(Math.min(oddStartColor.g * 1.06, 255)), b: Math.round(Math.min(oddStartColor.b * 1.06, 255))};
         div.setAttribute('style', 'width: 11.1%; float: left; padding-bottom: 11.1%; background-color: rgb(' + oddStartColor.r + ',' + oddStartColor.g + ',' + oddStartColor.b + ')');
       } else {
