@@ -49,6 +49,7 @@ window.onload = () => {
 
   // FLASHING
   let containerDiv = document.createElement('div');
+  containerDiv.setAttribute('id', 'container');
   body.appendChild(containerDiv);
   
   function getRandomColor() {
@@ -61,21 +62,26 @@ window.onload = () => {
   }
 
   function createDivs() {
+    let count = 0;
     for(var i = 0; i < 45; i++) {
       let div = document.createElement('div');
       div.setAttribute('style', 'width: 11.1%; float: left; padding-bottom: 11.1%;');
+      div.setAttribute('id', count);
       div.style.backgroundColor = getRandomColor();
       containerDiv.appendChild(div);
+      count++;
     } 
   }
-  
   createDivs();
 
-  // function changeColor() {
-  //   body.removeChild(containerDiv);
-  //   createDivs();
-  // }
-  // setInterval(changeColor, 2000);
+  function updateColor() {
+    for(var i = 0; i < 45; i++) {
+      let colorDiv = document.getElementById(i);
+      let newColor = getRandomColor();
+      colorDiv.style.backgroundColor = newColor;
+    }
+  }
+  setInterval(updateColor, 2000);
   
   // AUDIO
   let audio = document.createElement('audio');
