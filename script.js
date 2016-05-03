@@ -48,6 +48,9 @@ window.onload = () => {
   // }
 
   // FLASHING
+  let containerDiv = document.createElement('div');
+  body.appendChild(containerDiv);
+  
   function getRandomColor() {
     let letters = '0123456789ABCDEF'.split('');
     let color = '#';
@@ -59,14 +62,27 @@ window.onload = () => {
 
   function createDivs() {
     for(var i = 0; i < 45; i++) {
-    let div = document.createElement('div');
-    div.setAttribute('style', 'width: 11.1%; float: left; padding-bottom: 11.1%;');
-    div.style.backgroundColor = getRandomColor();
-    body.appendChild(div);
+      let div = document.createElement('div');
+      div.setAttribute('style', 'width: 11.1%; float: left; padding-bottom: 11.1%;');
+      div.style.backgroundColor = getRandomColor();
+      containerDiv.appendChild(div);
     } 
   }
-
-  createDivs();
-  // setInterval(getRandomColor, 2000);
   
+  createDivs();
+
+  // function changeColor() {
+  //   body.removeChild(containerDiv);
+  //   createDivs();
+  // }
+  // setInterval(changeColor, 2000);
+  
+  // AUDIO
+  let audio = document.createElement('audio');
+  body.appendChild(audio);
+  let source = document.createElement('source');
+  source.setAttribute('src', 'eric-clapton-layla.mp3');
+  audio.appendChild(source);
+  audio.play();
+
 }
